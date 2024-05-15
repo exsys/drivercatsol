@@ -13,6 +13,7 @@ const config: Config = {
       },
       dropShadow: {
         "main": "0 0 1px rgba(0, 0, 0, 1)",
+        "main2": "0 0 2px rgba(0, 0, 0, 1)",
       },
     },
   },

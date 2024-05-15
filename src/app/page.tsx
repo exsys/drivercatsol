@@ -9,40 +9,44 @@ import Link from "next/link";
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
-  const [soundOn, setSoundOn] = useState<boolean>(false);
+  const [isMuted, setIsMuted] = useState(true);
   const vidRef: any = useRef();
 
   const toggleMute = () => {
-    const sound = document.getElementById("video-sound") as HTMLAudioElement;
-    sound.muted = !sound.muted;
-    setSoundOn(!sound.muted);
+    const video = vidRef.current;
+    if (video) {
+      video.muted = !video.muted;
+      setIsMuted(video.muted);
+    }
   }
 
   return (
     <main className="h-full text-white">
-      <audio id="video-sound" src="/sounds/audio.mp3" loop autoPlay muted />
-
       <div className="h-full flex flex-col justify-center items-center relative gap-10 sm:gap-6">
         <div className="absolute top-16 left-1/2 -translate-x-1/2">
           <div className="flex justify-center items-center gap-10">
             <Link href={"https://twitter.com/drivercatsolana"} target="_blank"
               className="cursor-pointer">
-              <TwitterX className="w-16 h-16 fill-white hover:fill-gray-400 transition-all" />
+              <TwitterX className="w-16 h-16 fill-white hover:fill-gray-300 transition-all
+              drop-shadow-main2" />
             </Link>
 
             <Link href={"https://t.me/drivercatportal"} target="_blank"
               className="cursor-pointer">
-              <Telegram className="w-12 h-12 fill-white hover:fill-gray-400 transition-all" />
+              <Telegram className="w-12 h-12 fill-white hover:fill-gray-300 transition-all
+              drop-shadow-main2" />
             </Link>
 
             <Link href={"https://dexscreener.com/solana/c15n3awpqe7mqpolozo7tzted29ma4panpbva4s3d5lz"}
               className="cursor-pointer" target="_blank">
-              <DexScreener className="w-16 h-16 fill-white hover:fill-gray-400 transition-all" />
+              <DexScreener className="w-16 h-16 fill-white hover:fill-gray-300 transition-all
+              drop-shadow-main2" />
             </Link>
 
             <Link href={"https://jup.ag/swap/SOL-oBeUgUJoCDueVUkG6pxxgjWjW79EhsttNF2FjDBnYuy"} target="_blank"
               className="cursor-pointer">
-              <Jupiter className="w-12 h-12 fill-white hover:fill-gray-400 transition-all" />
+              <Jupiter className="w-12 h-12 fill-white hover:fill-gray-300 transition-all
+              drop-shadow-main2" />
             </Link>
           </div>
         </div>
@@ -61,11 +65,11 @@ export default function Home() {
 
         <div className="w-3/5 mx-auto absolute bottom-10 z-50">
           <div className="flex justify-end">
-            {soundOn ? (
-              <SpeakerWaveIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2"
+            {isMuted ? (
+              <SpeakerXMarkIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2 hover:text-gray-300"
                 onClick={() => toggleMute()} />
             ) : (
-              <SpeakerXMarkIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2"
+              <SpeakerWaveIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2 hover:text-gray-300"
                 onClick={() => toggleMute()} />
             )}
           </div>
