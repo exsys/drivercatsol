@@ -17,6 +17,8 @@ export default function Home() {
 
   return (
     <main className="h-full text-white">
+      <audio id="video-sound" src="/sounds/audio.mp3" loop autoPlay />
+
       <div className="h-full flex flex-col justify-center items-center relative gap-10 sm:gap-6">
         <div className="absolute top-16 left-1/2 -translate-x-1/2">
           <div className="flex justify-center items-center gap-10">
