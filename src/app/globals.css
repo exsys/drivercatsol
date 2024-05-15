@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  background-color: black;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .text-outline {
+    -webkit-text-stroke-width: 0.05rem;
+    -webkit-text-stroke-color: black;
+  }
+}
