@@ -1,23 +1,26 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef, useState } from "react";
 import DexScreener from "@/components/icons/dexscreener";
 import Jupiter from "@/components/icons/jupiter";
 import Telegram from "@/components/icons/telegram";
 import TwitterX from "@/components/icons/twitterx";
 import Link from "next/link";
-import styles from "./home.module.sass";
+//import styles from "./home.module.sass";
+import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
+  const [soundOn, setSoundOn] = useState<boolean>(false);
   const vidRef: any = useRef();
 
-  /*useEffect(() => {
-    if (!vidRef) return;
-    vidRef.current.muted = false;
-  }, [vidRef]);*/
+  const toggleMute = () => {
+    const sound = document.getElementById("video-sound") as HTMLAudioElement;
+    sound.muted = !sound.muted;
+    setSoundOn(!sound.muted);
+  }
 
   return (
     <main className="h-full text-white">
-      <audio id="video-sound" src="/sounds/audio.mp3" loop autoPlay />
+      <audio id="video-sound" src="/sounds/audio.mp3" loop autoPlay muted />
 
       <div className="h-full flex flex-col justify-center items-center relative gap-10 sm:gap-6">
         <div className="absolute top-16 left-1/2 -translate-x-1/2">
@@ -54,6 +57,18 @@ export default function Home() {
           <h1 className={`text-7xl font-semibold text-outline`}>
             $DAT
           </h1>
+        </div>
+
+        <div className="w-3/5 mx-auto absolute bottom-10 z-50">
+          <div className="flex justify-end">
+            {soundOn ? (
+              <SpeakerWaveIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2"
+                onClick={() => toggleMute()} />
+            ) : (
+              <SpeakerXMarkIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2"
+                onClick={() => toggleMute()} />
+            )}
+          </div>
         </div>
       </div>
     </main>
