@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import DexScreener from "@/components/icons/dexscreener";
 import Jupiter from "@/components/icons/jupiter";
 import Telegram from "@/components/icons/telegram";
@@ -11,12 +11,6 @@ import { SpeakerWaveIcon, SpeakerXMarkIcon } from "@heroicons/react/24/outline";
 export default function Home() {
   const [soundOn, setSoundOn] = useState<boolean>(false);
   const vidRef: any = useRef();
-
-  useEffect(() => {
-    const sound = document.getElementById("video-sound") as HTMLAudioElement;
-    sound.muted = false;
-    setSoundOn(true);
-  }, []);
 
   const toggleMute = () => {
     const sound = document.getElementById("video-sound") as HTMLAudioElement;
