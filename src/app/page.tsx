@@ -57,14 +57,9 @@ export default function Home() {
           </video>
         </div>
 
-        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2`}>
-          <h1 className={`text-7xl font-semibold text-outline`}>
-            $DAT
-          </h1>
-        </div>
-
-        <div className="w-3/5 mx-auto absolute bottom-10 z-50">
-          <div className="flex justify-end">
+        <div className="w-full sm:w-3/4 xl:w-3/5 mx-auto sm:justify-end absolute bottom-40 sm:bottom-12
+        lg:bottom-[54px] xl:bottom-10 z-50">
+          <div className="flex justify-center sm:justify-end">
             {isMuted ? (
               <SpeakerXMarkIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2 hover:text-gray-300"
                 onClick={() => toggleMute()} />
@@ -74,6 +69,13 @@ export default function Home() {
             )}
           </div>
         </div>
+
+        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2`}>
+          <h1 className={`text-7xl font-semibold text-outline`}>
+            $DAT
+          </h1>
+        </div>
+
       </div>
     </main>
   );
