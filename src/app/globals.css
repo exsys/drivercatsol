@@ -17,4 +17,11 @@ body {
     -webkit-text-stroke-width: 0.05rem;
     -webkit-text-stroke-color: black;
   }
+
+  .cover-background {
+    height: 100%;
+    width: 177.77777778vh;
+    min-width: 100%;
+    min-height: 56.25vw;
+  }
 }

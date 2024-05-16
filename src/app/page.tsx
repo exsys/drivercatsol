@@ -24,7 +24,7 @@ export default function Home() {
     <main className="h-full text-white">
       <div className="h-full flex flex-col justify-center items-center relative gap-10 sm:gap-6">
         <div className="absolute top-16 left-1/2 -translate-x-1/2">
-          <div className="flex justify-center items-center gap-10">
+          <nav className="flex justify-center items-center gap-10 z-50">
             <Link href={"https://twitter.com/drivercatsolana"} target="_blank"
               className="cursor-pointer">
               <TwitterX className="w-16 h-16 fill-white hover:fill-gray-300 transition-all
@@ -48,17 +48,17 @@ export default function Home() {
               <Jupiter className="w-12 h-12 fill-white hover:fill-gray-300 transition-all
               drop-shadow-main2" />
             </Link>
-          </div>
+          </nav>
         </div>
 
-        <div className="flex justify-center w-full h-full">
-          <video autoPlay loop muted ref={vidRef}>
+        <div className="flex justify-center w-full h-screen overflow-hidden">
+          <video autoPlay loop muted ref={vidRef} className="cover-background">
             <source src="/videos/rainbowroad.mp4" type="video/mp4" />
           </video>
         </div>
 
         <div className="w-full sm:w-3/4 xl:w-3/5 mx-auto sm:justify-end absolute bottom-40 sm:bottom-12
-        lg:bottom-[54px] xl:bottom-10 z-50">
+        lg:bottom-[54px] xl:bottom-12 z-50">
           <div className="flex justify-center sm:justify-end">
             {isMuted ? (
               <SpeakerXMarkIcon className="w-10 h-10 drop-shadow-main cursor-pointer stroke-2 hover:text-gray-300"
