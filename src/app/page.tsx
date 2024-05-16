@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <main className="h-full text-white">
       <div className="h-full flex flex-col justify-center items-center relative gap-10 sm:gap-6">
-        <div className="absolute top-16 left-1/2 -translate-x-1/2">
+        <div className="absolute top-16 left-1/2 -translate-x-1/2 z-50">
           <nav className="flex justify-center items-center gap-10 z-50">
             <Link href={"https://twitter.com/drivercatsolana"} target="_blank"
               className="cursor-pointer">
